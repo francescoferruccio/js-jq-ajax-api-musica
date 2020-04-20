@@ -13,11 +13,13 @@ $(document).ready( function() {
     success: function (data, stato) {
       var listaAlbum = data.response;
 
+      // ciclo l'array che mi restituisce l'api ed estraggo le informazioni
+      // che mi interessano
       for (var i = 0; i < listaAlbum.length; i++) {
         // creo oggetto che conterrà i dati da passare al template
         var context = {
           cover: listaAlbum[i].poster,
-          titolo: listaAlbum[i].title,
+          titolo: listaAlbum[i].title.toUpperCase(),
           artista: listaAlbum[i].author,
           anno: listaAlbum[i].year
         };
